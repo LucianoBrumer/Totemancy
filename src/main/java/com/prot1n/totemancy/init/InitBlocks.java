@@ -24,6 +24,18 @@ public class InitBlocks {
             new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)
     );
 
+    public static final RegistryObject<Block> OAK_POISON_TOTEM = register(
+            "oak_poison_totem",
+            () -> new Block(BlockBehaviour.Properties.of(Material.WOOD).strength(2f).requiresCorrectToolForDrops().sound(SoundType.WOOD)),
+            new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)
+    );
+
+    public static final RegistryObject<Block> OAK_FIRE_RESISTANCE_TOTEM = register(
+            "oak_fire_resistance_totem",
+            () -> new Block(BlockBehaviour.Properties.of(Material.WOOD).strength(2f).requiresCorrectToolForDrops().sound(SoundType.WOOD)),
+            new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)
+    );
+
     public static <T extends Block> RegistryObject<T> register(
             String name,
             Supplier<T> supplier,

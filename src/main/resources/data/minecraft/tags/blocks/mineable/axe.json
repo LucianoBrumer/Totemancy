@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "totemancy:oak_wither_totem"
+    "totemancy:oak_wither_totem",
+    "totemancy:oak_poison_totem",
+    "totemancy:oak_fire_resistance_totem"
   ]
 }

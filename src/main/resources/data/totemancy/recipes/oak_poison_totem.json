@@ -8,11 +8,14 @@
       "item": "minecraft:oak_log"
     },
     {
-      "item": "minecraft:wither_skeleton_skull"
+      "item": "minecraft:fermented_spider_eye"
+    },
+    {
+      "item": "minecraft:poisonous_potato"
     }
   ],
   "result": {
-    "item": "totemancy:oak_wither_totem",
+    "item": "totemancy:oak_poison_totem",
     "count": 1
   }
 }

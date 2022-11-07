@@ -1,4 +1,6 @@
 {
   "item.totemancy.pokeball": "Pokeball",
-  "block.totemancy.oak_wither_totem": "Oak Wither Totem"
+  "block.totemancy.oak_wither_totem": "Oak Wither Totem",
+  "block.totemancy.oak_poison_totem": "Oak Poison Totem",
+  "block.totemancy.oak_fire_resistance_totem": "Oak Fire Resistance Totem"
 }
