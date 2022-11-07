@@ -1,13 +1,17 @@
 package com.prot1n.totemancy.events;
 
 import com.google.common.eventbus.Subscribe;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.server.IntegratedServer;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.profiling.jfr.event.WorldLoadFinishedEvent;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.level.GameRules;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.level.BlockEvent;
+import net.minecraftforge.event.level.LevelEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class TotemEvents {
@@ -17,11 +21,12 @@ public class TotemEvents {
         server.getCommands().performPrefixedCommand(stack, command);
     }
 
-//    @SubscribeEvent
-//    public void worldLoad(WorldLoadFinishedEvent event){
-//
-//        runCommand((IntegratedServer) server, "gamerule commandBlockOutput false");
-//    }
+    @SubscribeEvent
+    public void worldLoad(LevelEvent.Load event) {
+        var server = Minecraft.getInstance().getSingleplayerServer();
+        runCommand((IntegratedServer) server, "gamerule sendCommandFeedback false");
+
+    }
 
     @SubscribeEvent
     public void placeBlock(BlockEvent.EntityPlaceEvent event){
@@ -33,7 +38,6 @@ public class TotemEvents {
 
             var pos = event.getPos();
 
-            runCommand((IntegratedServer) server, "gamerule sendCommandFeedback false");
             String command = "summon marker " + (int)(pos.getX()) + " " + (int)(pos.getY()) + " " + (int)(pos.getZ()) + "  {Tags:[\"totemancy_wither\"]}";
             runCommand((IntegratedServer) server, command);
         }
