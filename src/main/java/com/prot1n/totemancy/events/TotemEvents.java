@@ -33,9 +33,9 @@ public class TotemEvents {
 
             var pos = event.getPos();
 
+            runCommand((IntegratedServer) server, "gamerule sendCommandFeedback false");
             String command = "summon marker " + (int)(pos.getX()) + " " + (int)(pos.getY()) + " " + (int)(pos.getZ()) + "  {Tags:[\"totemancy_wither\"]}";
             runCommand((IntegratedServer) server, command);
-            runCommand((IntegratedServer) server, "gamerule sendCommandFeedback false");
         }
 
     }
