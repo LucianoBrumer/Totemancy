@@ -43,7 +43,7 @@ public class TotemEvents {
 
     }
 
-    public static void TotemTick(IntegratedServer server, String effect, int effectID, int distance, int duration){
+    public static void TotemEffectTick(IntegratedServer server, String effect, int effectID, int distance, int duration){
         runCommand((IntegratedServer) server, "execute as @e[tag=totemancy_" + effect + "] at @s if block ~ ~1 ~ #totemancy:totem_base if block ~ ~-1 ~ #totemancy:totem_base if block ~ ~ ~1 #totemancy:totem_wings[half=top] if block ~ ~ ~-1 #totemancy:totem_wings[half=top] if entity @e[tag=totemancy_" + effect + ",distance=..5] run effect give @e[nbt=!{ActiveEffects:[{Id:" + effectID + "}]},distance=.." + distance + "] " + effect + " " + duration + " 0");
         runCommand((IntegratedServer) server, "execute as @e[tag=totemancy_" + effect + "] at @s if block ~ ~1 ~ #totemancy:totem_base if block ~ ~-1 ~ #totemancy:totem_base if block ~1 ~ ~ #totemancy:totem_wings[half=top] if block ~-1 ~ ~ #totemancy:totem_wings[half=top] if entity @e[tag=totemancy_" + effect + ",distance=..5] run effect give @e[nbt=!{ActiveEffects:[{Id:" + effectID + "}]},distance=.." + distance + "] " + effect + " " + duration + " 0");
         runCommand((IntegratedServer) server, "execute as @e[tag=totemancy_" + effect + "] at @s unless block ~ ~ ~ totemancy:oak_" + effect + "_totem run kill @s");
@@ -55,9 +55,9 @@ public class TotemEvents {
         var server = Minecraft.getInstance().getSingleplayerServer();
 
         if(server != null){
-            TotemTick(server, "wither", 20, 7, 5);
-            TotemTick(server, "poison",19,7 , 5);
-            TotemTick(server, "fire_resistance",12,7, 10);
+            TotemEffectTick(server, "wither", 20, 7, 5);
+            TotemEffectTick(server, "poison",19,7 , 5);
+            TotemEffectTick(server, "fire_resistance",12,7, 10);
         }
     }
 }
